@@ -1,7 +1,8 @@
+#include "main.h"
 #include <string>
 #include "lemlib/api.hpp" // IWYU pragma: keep
 #include "autonFunctions.h"
-
+#include "lemlib-tarball/api.hpp"
 //creates an auton class to store auton names and ids for future auton selector implimentation
 class auton {
 public: 
