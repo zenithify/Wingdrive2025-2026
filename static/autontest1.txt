@@ -1,0 +1,68 @@
+#PATH-POINTS-START to mid blocks
+-46.548, 12.451, 83.683
+-44.742, 13.31, 80.59
+-42.95, 14.198, 77.375
+-41.177, 15.124, 74.019
+-39.429, 16.094, 70.504
+-37.703, 17.106, 66.805
+-35.977, 18.116, 62.888
+-34.164, 18.954, 58.715
+-32.237, 19.482, 54.221
+-30.265, 19.816, 49.315
+-28.281, 20.065, 43.863
+-26.292, 20.274, 37.63
+-24.301, 20.464, 30.133
+-22.309, 20.644, 20
+-21.492, 20.717, 0
+-21.492, 20.717, 0
+-1.571, 22.488, 0
+endData
+#PATH-POINTS-START to match load
+-21.492, 20.717, 99.447
+-22.512, 22.437, 99.447
+-23.542, 24.152, 99.332
+-24.584, 25.859, 99.195
+-25.639, 27.558, 99.03
+-26.711, 29.246, 97.683
+-27.803, 30.922, 95.047
+-28.919, 32.582, 92.336
+-30.064, 34.221, 89.543
+-31.249, 35.833, 86.66
+-32.476, 37.412, 83.678
+-33.762, 38.942, 80.586
+-35.118, 40.412, 77.37
+-36.565, 41.792, 74.015
+-38.124, 43.045, 70.501
+-39.806, 44.124, 66.804
+-41.607, 44.99, 62.89
+-43.507, 45.609, 58.716
+-45.465, 46.013, 54.22
+-47.451, 46.242, 49.315
+-49.447, 46.364, 43.863
+-51.446, 46.427, 37.63
+-53.446, 46.469, 30.133
+-55.445, 46.514, 20
+-56.622, 46.548, 0
+-56.622, 46.548, 0
+-76.614, 47.119, 0
+endData
+#PATH-POINTS-START to long tube
+-56.622, 46.548, 78
+-54.622, 46.568, 78
+-52.622, 46.587, 77.382
+-50.622, 46.607, 74.027
+-48.622, 46.626, 70.512
+-46.622, 46.646, 66.813
+-44.623, 46.666, 62.897
+-42.623, 46.685, 58.72
+-40.623, 46.705, 54.222
+-38.623, 46.725, 49.315
+-36.623, 46.744, 43.863
+-34.623, 46.764, 37.63
+-32.623, 46.783, 30.133
+-30.623, 46.803, 20
+-30.274, 46.806, 0
+-30.274, 46.806, 0
+-10.275, 47.003, 0
+endData
+#PATH.JERRYIO-DATA {"appVersion":"0.10.0","format":"LemLib Tarball v0.5","gc":{"robotWidth":16,"robotHeight":17,"robotIsHolonomic":false,"showRobot":true,"uol":2.54,"pointDensity":2,"controlMagnetDistance":1.968503937007874,"fieldImage":{"displayName":"V5RC 2026 - Push Back","signature":"V5RC-PushBack-H2H-TopDownHighlighted-TileColor66_71","origin":{"__type":"built-in"}},"coordinateSystem":"VEX Gaming Positioning System"},"paths":[{"segments":[{"controls":[{"uid":"mU7vj4K0tl","x":-46.5481177406167,"y":12.450717397878606,"lock":false,"visible":true,"heading":50,"__type":"end-point"},{"uid":"F2wDefJZWp","x":-31.56592668092874,"y":19.425185649802298,"lock":false,"visible":true,"__type":"control"},{"uid":"BG8Be8Xovn","x":-39.057022210772715,"y":19.16687201084217,"lock":false,"visible":true,"__type":"control"},{"uid":"En2lwXBaSm","x":-21.492,"y":20.717,"lock":false,"visible":true,"heading":0,"__type":"end-point"}],"speedProfiles":[],"lookaheadKeyframes":[],"uid":"GjpyLotrES"}],"pc":{"speedLimit":{"minLimit":{"value":0,"label":"0"},"maxLimit":{"value":127,"label":"127"},"step":1,"from":20,"to":100},"bentRateApplicableRange":{"minLimit":{"value":0,"label":"0"},"maxLimit":{"value":1,"label":"1"},"step":0.001,"from":0,"to":0.1},"maxDecelerationRate":127},"name":"to mid blocks","uid":"R7FVM30Xs1","lock":false,"visible":true},{"segments":[{"controls":[{"uid":"yjqChn4rdy","x":-21.492,"y":20.717,"lock":false,"visible":true,"heading":0,"__type":"end-point"},{"uid":"WA6OhwPVQq","x":-37.76545401597204,"y":48.356313213337664,"lock":false,"visible":true,"__type":"control"},{"uid":"wjC30VrEcA","x":-40.86521768349368,"y":46.03149046269643,"lock":false,"visible":true,"__type":"control"},{"uid":"yRd4djiVKD","x":-56.622,"y":46.548,"lock":false,"visible":true,"heading":270,"__type":"end-point"}],"speedProfiles":[],"lookaheadKeyframes":[],"uid":"YSYbdR1Hyo"}],"pc":{"speedLimit":{"minLimit":{"value":0,"label":"0"},"maxLimit":{"value":127,"label":"127"},"step":1,"from":20,"to":100},"bentRateApplicableRange":{"minLimit":{"value":0,"label":"0"},"maxLimit":{"value":1,"label":"1"},"step":0.001,"from":0,"to":0.172},"maxDecelerationRate":127},"name":"to match load","uid":"GnkYdJTR8L","lock":false,"visible":true},{"segments":[{"controls":[{"uid":"PWO5XoA3Cu","x":-56.622,"y":46.548,"lock":false,"visible":true,"heading":270,"__type":"end-point"},{"uid":"Snc07CID4F","x":-30.274358486128065,"y":46.806431379576836,"lock":false,"visible":true,"heading":270,"__type":"end-point"}],"speedProfiles":[],"lookaheadKeyframes":[],"uid":"yL0G9e1H5b"}],"pc":{"speedLimit":{"minLimit":{"value":0,"label":"0"},"maxLimit":{"value":127,"label":"127"},"step":1,"from":20,"to":78},"bentRateApplicableRange":{"minLimit":{"value":0,"label":"0"},"maxLimit":{"value":1,"label":"1"},"step":0.001,"from":0,"to":0.1},"maxDecelerationRate":127},"name":"to long tube","uid":"S5mhOmFxXH","lock":false,"visible":true}]}
