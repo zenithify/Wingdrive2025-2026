@@ -3,7 +3,7 @@
 #include "lemlib/api.hpp" // IWYU pragma: keep
 #include "pros/misc.h"
 #include "pros/motors.hpp"
-#include "8448G/autons.h"
+#include "autons.h"
 
 //important varibles for the beginning of the code insure color sort is off the color set to the correct starting color and the selectedAutonID is getting the corect auton
 bool sort = false; //false = off, true = on
