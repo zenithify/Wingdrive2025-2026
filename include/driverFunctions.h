@@ -39,8 +39,23 @@ static void intakeControl(){
 
 static void littleWillFlip(){
 static bool LW { false };
-    if(controller.get_digital_new_press(DIGITAL_A)) {
+    if(controller.get_digital_new_press(DIGITAL_DOWN)) {
     littleWill.set_value(!LW);    //When false go to true and in reverse
     LW = !LW;    //Flip the toggle to match piston state
+    }
+    }
+
+    static void wingFlip(){
+static bool W { false };
+    if(controller.get_digital_new_press(DIGITAL_RIGHT)) {
+    littleWill.set_value(!W);    //When false go to true and in reverse
+    W = !W;    //Flip the toggle to match piston state
+    }
+}
+    static void middleGoalScoreFlip(){
+static bool MS { false };
+    if(controller.get_digital_new_press(DIGITAL_A)) {
+    littleWill.set_value(!MS);    //When false go to true and in reverse
+    MS = !MS;    //Flip the toggle to match piston state
     }
 }

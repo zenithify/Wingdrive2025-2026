@@ -79,6 +79,10 @@ void opcontrol() {
         
         //flips the little will up or down depending on its current state (method in driverFunctions.h)
         littleWillFlip();
+        //flips the wing descore up or down depending on its current state (method in driverFunctions.h)   
+        wingFlip();
+        //flips the middle goal score piston up or down depending on its current state (method in driverFunctions.h)
+        middleGoalScoreFlip();
 
 	// delay to save resources (do not delete will eat resources)
     pros::delay(10);
