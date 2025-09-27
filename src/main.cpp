@@ -59,12 +59,19 @@ void autonomous() {
 	*to edit autos, go to autons.h
     */
 
-    runAuto(selectedAutonID); //running auton code with the ID stored in selectedAutonID
+    //runAuto(selectedAutonID); //running auton code with the ID stored in selectedAutonID
+
+    // set position to x:0, y:0, heading:0
+    chassis.setPose(0, 0, 0);
+    // turn to face heading 90 with a very long timeout
+    chassis.moveToPoint(0, 24, 10000000);
 }
 
 // Runs in driver control
 void opcontrol() {
     sort = true; //starts color sort on for driver control
+    //odompickup.set_value(true);
+    wing.set_value(true);
     // main driver control loop
     while (true) {
         

@@ -3,6 +3,12 @@
 #include "lemlib/api.hpp" // IWYU pragma: keep
 #include "autonFunctions.h"
 #include "lemlib-tarball/api.hpp"
+// Replace my_paths.txt with your actual filename
+// "." is replaced with "_" to overcome c++ limitations
+ASSET(autontest1_txt);
+// Create the decoder
+lemlib_tarball::Decoder decoder(autontest1_txt);
+
 //creates an auton class to store auton names and ids for future auton selector implimentation
 class auton {
 public: 
@@ -54,6 +60,8 @@ static void runAuto(int id){
     //example of creating a auton routine based on the example auton abject created above
     if (id == example.getid()){
     chassis.setPose(0, 0, 0);
+    chassis.follow(decoder["to mid blocks"], 15, 2000);
+    chassis.follow(decoder["to match load"], 15, 2000);
     }
     
     
