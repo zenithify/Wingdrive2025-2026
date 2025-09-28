@@ -95,3 +95,8 @@ lemlib::ExpoDriveCurve     steerCurve        (      3, // joystick deadband out 
 
 // create the chassis
 lemlib::Chassis chassis (drivetrain, linearController, angularController, sensors, &throttleCurve, &steerCurve);
+
+//chassis motor get temp functions
+
+static int getLeftMotorTemp(){return leftMotors.get_temperature();}
+static int getRightMotorTemp(){return rightMotors.get_temperature();}

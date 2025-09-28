@@ -2,16 +2,10 @@
 #include "main.h"
 #include "lemlib/api.hpp" // IWYU pragma: keep
 #include "pros/misc.h"
-#include "pros/motors.hpp"
-#include "autons.h"
 
 //important varibles for the beginning of the code insure color sort is off the color set to the correct starting color and the selectedAutonID is getting the corect auton
 bool sort = false; //false = off, true = on
 bool color = false; //false = red, true = blue
-int selectedAutonID = example.getid(); //default auton ID, will be changed by auton selector in future
-
-//converts the ID to a name for display on the brain screen
-std::string selectedAutonName =idToName(selectedAutonID);
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -21,21 +15,8 @@ std::string selectedAutonName =idToName(selectedAutonID);
 void initialize() {
     pros::lcd::initialize(); // initialize brain screen
     chassis.calibrate(); // calibrate sensors
-    // thread to for brain screen and position logging
-    pros::Task screenTask([&]() {
-        while (true) {
-            // print robot location to the brain screen
-            pros::lcd::print(0, "X: %f", chassis.getPose().x); // x
-            pros::lcd::print(1, "Y: %f", chassis.getPose().y); // y
-            pros::lcd::print(2, "Theta: %f", chassis.getPose().theta); // heading
-            // log position telemetry
-            lemlib::telemetrySink()->info("Chassis pose: {}", chassis.getPose());
-
-			pros::lcd::print(3, "auton: %s", selectedAutonName); // heading
-        // delay to save resources (do not delete will eat resources)
-        pros::delay(50);
-        }
-    });
+    // runs tast in screen.h to display robot location and selected auton on brain screen
+    pros::Task screenTask(screenRunner);
 }
 
 
@@ -53,24 +34,12 @@ void competition_initialize() {
 
 // Runs during auto (you should not have to touch this function unless there is a major issue with the runAuto() method in autons.h)
 //autonomous codes are coded in autons.h and run here
-void autonomous() {
-   /**
-	* runAuto("Right Side"); //example of running auton code named "Right Side"
-	*to edit autos, go to autons.h
-    */
-
-    //runAuto(selectedAutonID); //running auton code with the ID stored in selectedAutonID
-
-    // set position to x:0, y:0, heading:0
-    chassis.setPose(0, 0, 0);
-    // turn to face heading 90 with a very long timeout
-    chassis.moveToPoint(0, 24, 10000000);
-}
+void autonomous() {runAuto(getSelectedAutonID());} //running auton code with the ID stored in screen.h
 
 // Runs in driver control
 void opcontrol() {
     sort = true; //starts color sort on for driver control
-    //odompickup.set_value(true);
+    odompickup.set_value(true);
     wing.set_value(true);
     // main driver control loop
     while (true) {
@@ -82,7 +51,7 @@ void opcontrol() {
         chassis.tank(leftY, rightY);
 			
         //forces overide to be off to spin intakes then looks for controler inputs to run intakes (method in driverFunctions.h)
-		if(overide == false){intakeControl();}
+		intakeControl();
         
         //flips the little will up or down depending on its current state (method in driverFunctions.h)
         littleWillFlip();

@@ -1,4 +1,3 @@
-#include "main.h"
 #include "lemlib/api.hpp" // IWYU pragma: keep
 #include "pros/misc.h"
 #include "pros/motors.hpp"
@@ -39,7 +38,7 @@ static void intakeControl(){
 
 static void littleWillFlip(){
 static bool LW { false };
-    if(controller.get_digital_new_press(DIGITAL_DOWN)) {
+    if(controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
     littleWill.set_value(!LW);    //When false go to true and in reverse
     LW = !LW;    //Flip the toggle to match piston state
     }
@@ -47,14 +46,14 @@ static bool LW { false };
 
     static void wingFlip(){
 static bool W { false };
-    if(controller.get_digital_new_press(DIGITAL_RIGHT)) {
+    if(controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
     wing.set_value(!W);    //When false go to true and in reverse
     W = !W;    //Flip the toggle to match piston state
     }
 }
     static void middleGoalScoreFlip(){
 static bool MS { false };
-    if(controller.get_digital_new_press(DIGITAL_A)) {
+    if(controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
     midScore.set_value(!MS);    //When false go to true and in reverse
     MS = !MS;    //Flip the toggle to match piston state
     }
