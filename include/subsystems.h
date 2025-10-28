@@ -14,12 +14,7 @@ pros::adi::DigitalOut midScore      ('C',false);
 pros::adi::DigitalOut wing          ('A',false);
 pros::adi::DigitalOut odompickup    ('D',false);
 pros::Optical         blockColor    (3); // optical sensor on port 3
-pros:: Distance       blockDistance (4); // distance sensor on port 4
-pros:: Distance       DR ();
-pros:: Distance       DL (6);
-pros:: Distance       DFR (7);
-pros:: Distance       DFL (8);
-pros:: Distance       DB (9);
+pros:: Distance       blockDistance (16); // distance sensor on port 4
 
 // controller
 pros::Controller controller (pros::E_CONTROLLER_MASTER);
@@ -38,7 +33,7 @@ pros::Imu imu (15);
 pros::Rotation horizontalEnc (5);
 
 //tracking wheels
-lemlib::TrackingWheel horizontal (&horizontalEnc, lemlib::Omniwheel::NEW_275, -1.25);
+lemlib::TrackingWheel horizontal (&horizontalEnc, lemlib::Omniwheel::NEW_2, -1);
 
 // drivetrain settings
 lemlib::Drivetrain         drivetrain        (	 &leftMotors, // left motor group
@@ -54,9 +49,9 @@ lemlib::ControllerSettings linearController  (			  10, // proportional gain (kP)
                                             			  0, // integral gain (kI)
                                             			  10, // derivative gain (kD)
                                             	 3, // anti windup
-                                            	  1, // small error range, in inches
+                                            	  .5, // small error range, in inches
                                            100, // small error range timeout, in milliseconds
-                                            	  3, // large error range, in inches
+                                            	  2, // large error range, in inches
                                            500, // large error range timeout, in milliseconds
                                             			20 // maximum acceleration (slew)
 );
@@ -98,5 +93,7 @@ lemlib::Chassis chassis (drivetrain, linearController, angularController, sensor
 
 //chassis motor get temp functions
 
-static int getLeftMotorTemp(){return leftMotors.get_temperature();}
-static int getRightMotorTemp(){return rightMotors.get_temperature();}
+static int getLeftMotorTemp()  {return leftMotors.get_temperature();}
+static int getRightMotorTemp() {return rightMotors.get_temperature();}
+static int getFrontStageTemp() {return frontStage.get_temperature();}
+static int getHoodTemp()       {return hood.get_temperature();}

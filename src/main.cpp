@@ -6,6 +6,7 @@
 //important varibles for the beginning of the code insure color sort is off the color set to the correct starting color and the selectedAutonID is getting the corect auton
 bool sort = false; //false = off, true = on
 bool color = false; //false = red, true = blue
+bool skills = false;
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -40,6 +41,7 @@ void autonomous() {runAuto(getSelectedAutonID());} //running auton code with the
 void opcontrol() {
     sort = true; //starts color sort on for driver control
     odompickup.set_value(true);
+    if(skills){ littleWill.set_value(true);}
     wing.set_value(true);
     // main driver control loop
     while (true) {
@@ -49,6 +51,11 @@ void opcontrol() {
         int rightY = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
         // move the chassis with curvature drive
         chassis.tank(leftY, rightY);
+
+        if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_X)){
+            printf ("started");
+            odompickup.set_value(false);
+            runAuto(getSelectedAutonID());}
 			
         //forces overide to be off to spin intakes then looks for controler inputs to run intakes (method in driverFunctions.h)
 		intakeControl();
@@ -62,5 +69,6 @@ void opcontrol() {
 
 	// delay to save resources (do not delete will eat resources)
     pros::delay(10);
+    
 	}	
 }
