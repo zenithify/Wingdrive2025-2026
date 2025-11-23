@@ -67,6 +67,8 @@ void opcontrol() {
         //flips the middle goal score piston up or down depending on its current state (method in driverFunctions.h)
         middleGoalScoreFlip();
 
+        MGDescoreFlip();
+
 	// delay to save resources (do not delete will eat resources)
     pros::delay(10);
     

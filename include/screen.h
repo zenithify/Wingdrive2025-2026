@@ -2,8 +2,8 @@
 #include "autons.h"
 #include "liblvgl/llemu.hpp"
 
-int selectedAutonID = redLeft2.getid();
-int maxAutonID = 5; //default auton ID, will be changed by auton selector in future;
+int selectedAutonID = SkillsSafe.getid();
+int maxAutonID = 6; //default auton ID, will be changed by auton selector in future;
 
 //returns the selected auton ID for use in main.cpp
 static int getSelectedAutonID(){return selectedAutonID;}
@@ -33,6 +33,7 @@ static void screenRunner(){
             //prints motor temps to brain screen
             pros::lcd::print(6, "Left motors temp:  %ic", getLeftMotorTemp()); // selected auton name
             pros::lcd::print(7, "Right motors temp: %ic", getRightMotorTemp());
+            //pros::lcd::print(7, "timer %i", getTimer());
             //pros::lcd::print(6, "%i", getblockCount());
             //pros::lcd::print(7, "%i", blockDistance.get());
             //auton selector button code

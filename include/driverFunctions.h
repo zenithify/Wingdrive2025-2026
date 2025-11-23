@@ -58,3 +58,10 @@ static bool MS { false };
     MS = !MS;    //Flip the toggle to match piston state
     }
 }
+    static void MGDescoreFlip(){
+static bool MG { false };
+    if(controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)) {
+    MGDescore.set_value(!MG);    //When false go to true and in reverse
+    MG = !MG;    //Flip the toggle to match piston state
+    }
+}

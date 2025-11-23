@@ -13,6 +13,7 @@ pros::adi::DigitalOut littleWill    ('B',false); //piston for the little will me
 pros::adi::DigitalOut midScore      ('C',false);
 pros::adi::DigitalOut wing          ('A',false);
 pros::adi::DigitalOut odompickup    ('D',false);
+pros::adi::DigitalOut MGDescore     ('E',false);
 pros::Optical         blockColor    (3); // optical sensor on port 3
 pros:: Distance       blockDistance (16); // distance sensor on port 4
 
@@ -79,13 +80,13 @@ lemlib::OdomSensors        sensors           (     nullptr, // vertical tracking
 // input curve for throttle input during driver control
 lemlib::ExpoDriveCurve     throttleCurve     (      3, // joystick deadband out of 127
                                      10, // minimum output where drivetrain will move out of 127
-                                         1.019 // expo curve gain
+                                         1.015 // expo curve gain
 );
 
 // input curve for steer input during driver control
 lemlib::ExpoDriveCurve     steerCurve        (      3, // joystick deadband out of 127
                                   10, // minimum output where drivetrain will move out of 127
-                                      1.019 // expo curve gain
+                                      1.015 // expo curve gain
 );
 
 // create the chassis
